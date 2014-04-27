@@ -1,0 +1,31 @@
+{
+  "name": "axiom-protocol",
+  "description": "Default protocol for Axiom.",
+  "version": "0.0.1",
+  "homepage": "",
+  "repository": "",
+  "author": "Torchlight Software <info@torchlightsoftware.com> (http://torchlightsoftware.com)",
+  "main": "./index.js",
+  "dependencies": {
+    "law": "*",
+    "coffee-script": "*"
+  },
+  "devDependencies": {
+    "torch": "*",
+    "mocha": "*",
+    "should": "*",
+    "axiom": "*"
+  },
+  "engines":{
+    "node": ">= 0.8.4"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": ""
+    }
+  ],
+  "scripts": {
+    "test": "mocha"
+  }
+}
