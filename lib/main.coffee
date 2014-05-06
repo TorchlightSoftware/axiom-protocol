@@ -1,14 +1,14 @@
-standardSignals =
+complexSignals =
   start: ['load', 'link', 'run']
   stop: ['halt', 'unlink', 'unload']
 
 task =
   type: 'task'
-  signals: standardSignals
+  signals: complexSignals
 
 agent =
   type: 'agent'
-  signals: standardSignals
+  signals: complexSignals
 
 module.exports =
   protocol:
@@ -22,3 +22,9 @@ module.exports =
     server:
       run: agent
       test: task
+
+  attachments:
+    routing: ['server.run/link', 'server.test/link']
+
+  services:
+    routing: require './services/routing'

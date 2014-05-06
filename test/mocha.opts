@@ -1,4 +1,5 @@
 --compilers coffee:coffee-script/register
+-t 200
 -r should
 -R spec
 --ui bdd
