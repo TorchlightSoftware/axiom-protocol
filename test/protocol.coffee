@@ -15,8 +15,8 @@ describe 'protocol', ->
     axiom.init {}, retriever
     axiom.load 'protocol', protocol
 
-  afterEach ->
-    axiom.reset()
+  afterEach (done) ->
+    axiom.reset(done)
 
   it 'should register server/run', (done) ->
     axiom.request "server.run", {}, done

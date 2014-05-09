@@ -4,13 +4,14 @@ module.exports =
   service: (args, done) ->
 
     # read through all the routes in the config
-    for route in @config.routes
-      for type, endpoints of route
+    if @config.routes
+      for route in @config.routes
+        for type, endpoints of route
 
-        # wire up each type of route
-        switch type
-          when 'link'
-            [from, to] = endpoints
-            @axiom.link from, to
+          # wire up each type of route
+          switch type
+            when 'link'
+              [from, to] = endpoints
+              @axiom.link from, to
 
     done()
