@@ -1,21 +1,27 @@
-complexSignals =
+standardSignals =
   start: ['load', 'link', 'run']
   stop: ['halt', 'unlink', 'unload']
 
 task =
   type: 'task'
-  signals: complexSignals
+  signals: standardSignals
 
 agent =
   type: 'agent'
-  signals: complexSignals
+  signals: standardSignals
+
+test =
+  type: 'task'
+  start: ['load', 'link', 'run']
+  runSuite: ['before', 'beforeEach', 'afterEach', 'after']
+  stop: ['halt', 'unlink', 'unload']
 
 module.exports =
   protocol:
 
     client:
       build: task
-      test: task
+      test: test
       run: agent
       deploy: task
 
@@ -23,8 +29,5 @@ module.exports =
       run: agent
       test: task
 
-  attachments:
-    routing: ['server.run/link', 'server.test/link']
-
-  services:
-    routing: require './services/routing'
+    db:
+      seed: task
